@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
 from api.views import get_presente, all_shop, all_mag, Magazik
-from stas_class.views import ZawodList, CreateZawod, ZawodDetail
+from stas_class.views import ZawodList, CreateZawod, ZawodDetail, StartViewSet
 
 router = routers.SimpleRouter()
 router.register(r'zawod', ZawodDetail, basename='zaw')
-router.register(r'maga', Magazik, basename='magnum')
+router.register(r'maga', Magazik)
+router.register(r'start', StartViewSet)
 urlpat = router.urls
 urlpatterns = [
     path('admin/', admin.site.urls),

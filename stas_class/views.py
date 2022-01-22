@@ -47,3 +47,7 @@ class ZawodDetail(viewsets.ViewSet):
         serialise = ZawodSerialiser(zaw_ok)
         return Response(serialise.data)
 
+
+class StartViewSet(viewsets.ModelViewSet):
+    queryset = Zawod.objects.all()
+    serializer_class = ZawodSerialiser

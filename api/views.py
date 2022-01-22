@@ -50,9 +50,11 @@ def all_product(request):
 
 
 class Magazik(viewsets.ViewSet):
+    queryset = Magaz.objects.all()
+
     def list(self, request):
-        queryset = Magaz.objects.all()
-        serialise = ShopSerializer(queryset, many=True)
+        # queryset = Magaz.objects.all()
+        serialise = ShopSerializer(self.queryset, many=True)
         return Response(serialise.data)
 
     def retrieve(self, request, pk=None):
